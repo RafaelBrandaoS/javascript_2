@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos - Hover</title>
+
+    <style>
+        table {
+            width: 500px;
+        }
+        th {
+            font-weight: bold;
+            text-align: left;
+        }
+        td {
+            height: 30px;
+        }
+        .link {
+            color: red;
+        }
+        .tractive {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    
+    <a href="#" id="link">
+        <h1>Saldações humanos</h1>
+    </a>
+
+    <table>
+        <thead>
+            <th>nome</th>
+            <th>idade</th>
+        </thead>
+        <tr class="trs">
+            <td>Alien</td>
+            <td>200</td>
+        </tr>
+        <tr class="trs">
+            <td>Bixo papão</td>
+            <td>100</td>
+        </tr>
+    </table>
+
+    <script>
+
+        var link = document.getElementById("link")
+        var trs = document.getElementsByClassName("trs")
+
+        link.addEventListener("mouseover", function() {
+            link.classList.add("link")
+        })
+
+        link.addEventListener("mouseleave", function() {
+            link.classList.remove("link")
+        })
+
+        for( let i = 0; i < trs.length; i++) {
+            trs[i].addEventListener("mouseover", function() {
+                this.classList.add("tractive")
+            })
+            trs[i].addEventListener("mouseleave", function() {
+                this.classList.remove("tractive")
+            })
+        }
+
+    </script>
+
+</body>
+</html>
