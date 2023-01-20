@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos - Submit</title>
+
+    <style>
+        .error {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+    
+    <form action="#" method="post">
+        <input type="text" name="name" value="rafael">
+        <input type="email" name="email" value="rafaelbrandao431@gmail.com">
+        <button type="submit">enter</button>
+    </form>
+
+    <script>
+
+        var form = document.querySelector("form")
+
+        form.addEventListener("submit", function(evento) {
+            evento.preventDefault()
+            let isvalid = true
+
+            for(let i = 0; i < this.elements.length; i++) {
+                let item = this.elements[i]
+
+                if(item.type !== "submit") {
+                    if(item.value == "") {
+                        item.classList.add("error")
+                        isvalid = false
+                    } else {
+                        item.classList.remove("error")
+                    }
+                }
+            }
+
+            console.log(isvalid)
+        })
+
+    </script>
+
+</body>
+</html>
